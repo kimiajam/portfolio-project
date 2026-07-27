@@ -1,10 +1,29 @@
 <section class="about">
 
-    <h2>About Me</h2>
+    {% if about %}
 
-    <p>
-        I'm Kimia, a backend developer passionate about building clean,
-        scalable web applications with Django and Python.
-    </p>
+        {% if about.profile_image %}
+            <img src="{{ about.profile_image.url }}" alt="{{ about.full_name }}">
+        {% endif %}
+
+        <h2>{{ about.full_name }}</h2>
+
+        <h3>{{ about.job_title }}</h3>
+
+        <p>{{ about.bio }}</p>
+
+        <div class="about-links">
+
+            {% if about.github %}
+                <a href="{{ about.github }}" target="_blank">GitHub</a>
+            {% endif %}
+
+            {% if about.linkedin %}
+                <a href="{{ about.linkedin }}" target="_blank">LinkedIn</a>
+            {% endif %}
+
+        </div>
+
+    {% endif %}
 
 </section>
