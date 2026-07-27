@@ -124,3 +124,20 @@ body {
 .nav-links a:hover {
     color: white;
 }
+
+.project-card {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.project-card img {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+
+    display: block;
+    margin: 20px auto;
+
+    border-radius: 14px;
+}
