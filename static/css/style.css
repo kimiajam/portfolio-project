@@ -240,3 +240,6 @@ body {
         font-size: 22px;
     }
 }
+html {
+    scroll-behavior: smooth;
+}
