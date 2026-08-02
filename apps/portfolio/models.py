@@ -29,3 +29,10 @@ class About(models.Model):
 
     def __str__(self):
         return self.full_name
+
+class Skill(models.Model):
+    name = models.CharField(max_length=100)
+    percentage = models.PositiveIntegerField(default=80)
+
+    def __str__(self):
+        return self.name
