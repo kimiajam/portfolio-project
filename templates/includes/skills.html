@@ -3,7 +3,20 @@
     <h2>Skills</h2>
 
     {% for skill in skills %}
-        <p>{{ skill }}</p>
+
+    <div class="skill-item">
+
+        <div class="skill-info">
+            <h3>{{ skill.name }}</h3>
+            <span>{{ skill.percentage }}%</span>
+        </div>
+
+        <div class="skill-bar">
+            <div class="skill-progress" style="width: {{ skill.percentage }}%;"></div>
+        </div>
+
+    </div>
+
     {% endfor %}
 
 </section>
