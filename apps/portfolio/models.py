@@ -9,9 +9,12 @@ class Project(models.Model):
 
     github_url = models.URLField(blank=True)
     live_url = models.URLField(blank=True)
-
+    technologies = models.CharField(max_length=200, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    @property
+    def tech_list(self):
+     return self.technologies.split(",")
     def __str__(self):
         return self.title
 

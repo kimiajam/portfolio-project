@@ -1,16 +1,27 @@
-<section id = "about" class="about">
+<section id="about" class="about">
 
     {% if about %}
+
+    <div class="about-image">
 
         {% if about.profile_image %}
             <img src="{{ about.profile_image.url }}" alt="{{ about.full_name }}">
         {% endif %}
+
+    </div>
+
+
+    <div class="about-content">
+
+        <span class="about-label">ABOUT ME</span>
 
         <h2>{{ about.full_name }}</h2>
 
         <h3>{{ about.job_title }}</h3>
 
         <p>{{ about.bio }}</p>
+
+     </div>
 
         <div class="about-links">
 
@@ -23,6 +34,8 @@
             {% endif %}
 
         </div>
+
+    </div>
 
     {% endif %}
 
