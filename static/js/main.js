@@ -238,5 +238,175 @@ document.addEventListener("DOMContentLoaded", () => {
     // =========================
 
     updateNavbar();
+// =========================
+// PROJECTS SLIDER
+// =========================
+
+const projectsSlider =
+    document.querySelector(".projects-slider");
+
+const projectsTrack =
+    document.querySelector(".projects-track");
+
+const projectCards =
+    document.querySelectorAll(".project-card");
+
+const projectsIndicator =
+    document.querySelector(".projects-indicator");
+
+
+if (
+    projectsSlider &&
+    projectsTrack &&
+    projectCards.length &&
+    projectsIndicator
+) {
+
+    let currentProject = 0;
+
+
+    // =========================
+    // CREATE INDICATORS
+    // =========================
+
+    projectCards.forEach((card, index) => {
+
+        const dot =
+            document.createElement("span");
+
+        dot.classList.add("project-dot");
+
+        if (index === 0) {
+            dot.classList.add("active");
+        }
+
+        projectsIndicator.appendChild(dot);
+
+
+        dot.addEventListener("click", () => {
+
+            currentProject = index;
+
+            updateProjectsSlider();
+
+        });
+
+    });
+
+
+    const dots =
+        projectsIndicator.querySelectorAll(
+            ".project-dot"
+        );
+
+
+    // =========================
+    // UPDATE SLIDER
+    // =========================
+
+    function updateProjectsSlider() {
+
+        const cardWidth =
+            projectCards[0].getBoundingClientRect().width;
+
+        const gap =
+            parseFloat(
+                getComputedStyle(projectsTrack).gap
+            ) || 0;
+
+
+        const move =
+            currentProject *
+            (cardWidth + gap);
+
+
+        projectsTrack.style.transform =
+            `translateX(-${move}px)`;
+
+
+        dots.forEach((dot, index) => {
+
+            dot.classList.toggle(
+                "active",
+                index === currentProject
+            );
+
+        });
+
+    }
+
+
+    // =========================
+    // SWIPE
+    // =========================
+
+    let touchStartX = 0;
+
+
+    projectsSlider.addEventListener(
+        "touchstart",
+        event => {
+
+            touchStartX =
+                event.touches[0].clientX;
+
+        },
+        { passive: true }
+    );
+
+
+    projectsSlider.addEventListener(
+        "touchend",
+        event => {
+
+            const touchEndX =
+                event.changedTouches[0].clientX;
+
+            const difference =
+                touchStartX - touchEndX;
+
+
+            if (
+                difference > 50 &&
+                currentProject <
+                projectCards.length - 1
+            ) {
+
+                currentProject++;
+
+                updateProjectsSlider();
+
+            }
+
+
+            if (
+                difference < -50 &&
+                currentProject > 0
+            ) {
+
+                currentProject--;
+
+                updateProjectsSlider();
+
+            }
+
+        },
+        { passive: true }
+    );
+
+
+    // =========================
+    // RESIZE
+    // =========================
+
+    window.addEventListener(
+        "resize",
+        updateProjectsSlider
+    );
+
+
+    updateProjectsSlider();
+
+}
 
 });
