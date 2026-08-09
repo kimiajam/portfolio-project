@@ -39,3 +39,20 @@ class Skill(models.Model):
 
     def __str__(self):
         return self.name
+
+class Education(models.Model):
+    TYPE_CHOICES = [
+        ("degree", "Bachelor's Degree"),
+        ("certificate", "Certificate"),
+        ("course", "Course"),
+    ]
+
+    title = models.CharField(max_length=150)
+    education_type = models.CharField(
+        max_length=50,
+        choices=TYPE_CHOICES
+    )
+    description = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.title

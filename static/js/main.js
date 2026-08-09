@@ -408,5 +408,170 @@ if (
     updateProjectsSlider();
 
 }
+// =========================
+// Education / Skills Sliders
+// =========================
 
+function initSlider(
+    trackSelector,
+    nextSelector,
+    prevSelector,
+    counterSelector
+) {
+
+    const track = document.querySelector(trackSelector);
+    const next = document.querySelector(nextSelector);
+    const prev = document.querySelector(prevSelector);
+    const counter = document.querySelector(counterSelector);
+
+    if (!track || !next || !prev) return;
+
+    const items = Array.from(track.children);
+
+    if (items.length === 0) return;
+
+    // هر 3 کارت = یک اسلاید
+    const groups = [];
+
+    for (let i = 0; i < items.length; i += 3) {
+
+        const group = document.createElement("div");
+
+        group.className =
+            trackSelector.includes("education")
+                ? "education-slide"
+                : "skills-slide";
+
+        items.slice(i, i + 3).forEach(item => {
+            group.appendChild(item);
+        });
+
+        groups.push(group);
+    }
+
+    track.innerHTML = "";
+
+    groups.forEach(group => {
+        track.appendChild(group);
+    });
+
+    let current = 0;
+
+
+    function updateSlider() {
+
+        track.style.transform =
+            `translateX(-${current * 100}%)`;
+
+        if (counter) {
+
+            counter.textContent =
+                `${String(current + 1).padStart(2, "0")}`;
+
+        }
+    }
+
+
+    next.addEventListener("click", () => {
+
+        current++;
+
+        if (current >= groups.length) {
+            current = 0;
+        }
+
+        updateSlider();
+
+    });
+
+
+    prev.addEventListener("click", () => {
+
+        current--;
+
+        if (current < 0) {
+            current = groups.length - 1;
+        }
+
+        updateSlider();
+
+    });
+
+
+    // =========================
+    // TOUCH SWIPE
+    // =========================
+
+    let startX = 0;
+
+    track.addEventListener(
+        "touchstart",
+        event => {
+
+            startX =
+                event.touches[0].clientX;
+
+        },
+        { passive: true }
+    );
+
+
+    track.addEventListener(
+        "touchend",
+        event => {
+
+            const endX =
+                event.changedTouches[0].clientX;
+
+            const distance =
+                startX - endX;
+
+            if (Math.abs(distance) < 50) {
+                return;
+            }
+
+
+            if (distance > 0) {
+
+                current++;
+
+                if (current >= groups.length) {
+                    current = 0;
+                }
+
+            } else {
+
+                current--;
+
+                if (current < 0) {
+                    current = groups.length - 1;
+                }
+
+            }
+
+            updateSlider();
+
+        },
+        { passive: true }
+    );
+
+
+    updateSlider();
+}
+
+
+initSlider(
+    ".education-track",
+    ".education-next",
+    ".education-prev",
+    ".education-counter"
+);
+
+
+initSlider(
+    ".skills-track",
+    ".skills-next",
+    ".skills-prev",
+    ".skills-counter"
+);
 });
