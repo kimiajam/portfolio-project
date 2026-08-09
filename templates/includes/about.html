@@ -1,42 +1,40 @@
-<section id="about" class="about">
-
-    {% if about %}
-
-    <div class="about-image">
-
-        {% if about.profile_image %}
-            <img src="{{ about.profile_image.url }}" alt="{{ about.full_name }}">
-        {% endif %}
-
-    </div>
-
+<section id="about" class="about panel">
 
     <div class="about-content">
 
-        <span class="about-label">ABOUT ME</span>
+        <span class="about-label">
+            ABOUT ME
+        </span>
 
-        <h2>{{ about.full_name }}</h2>
+        <h2>
+            {{ about.full_name }}
+        </h2>
 
-        <h3>{{ about.job_title }}</h3>
+        <h3>
+            {{ about.job_title }}
+        </h3>
 
-        <p>{{ about.bio }}</p>
-
-     </div>
-
-        <div class="about-links">
-
-            {% if about.github %}
-                <a href="{{ about.github }}" target="_blank">GitHub</a>
-            {% endif %}
-
-            {% if about.linkedin %}
-                <a href="{{ about.linkedin }}" target="_blank">LinkedIn</a>
-            {% endif %}
-
-        </div>
+        <p>
+            {{ about.bio }}
+        </p>
 
     </div>
 
-    {% endif %}
+
+    <div class="about-mark">
+
+        <span>K</span>
+
+        <small>
+            01
+        </small>
+
+
+        <div>
+            PYTHON<br>
+            PROGRAMMER
+        </div>
+
+    </div>
 
 </section>

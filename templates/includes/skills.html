@@ -1,22 +1,46 @@
-<section id="skills" class="skills">
+<section id="skills" class="skills panel">
 
-    <h2>Skills</h2>
+
+    <h2>
+        Skills
+    </h2>
+
+
 
     {% for skill in skills %}
 
+
     <div class="skill-item">
 
+
         <div class="skill-info">
-            <h3>{{ skill.name }}</h3>
-            <span>{{ skill.percentage }}%</span>
+
+            <h3>
+                {{ skill.name }}
+            </h3>
+
+            <span>
+                {{ skill.percentage }}%
+            </span>
+
         </div>
 
+
+
         <div class="skill-bar">
-            <div class="skill-progress" style="width: {{ skill.percentage }}%;"></div>
+
+            <div 
+            class="skill-progress" 
+            style="width: {{ skill.percentage }}%;">
+            </div>
+
         </div>
+
 
     </div>
 
+
     {% endfor %}
+
 
 </section>
