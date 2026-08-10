@@ -1,36 +1,189 @@
 <section id="contact" class="contact panel">
 
+    <div class="contact-inner">
 
-    <h2>
-        Contact
-    </h2>
+        <!-- =========================
+             LEFT — CONTACT INFO
+        ========================= -->
+
+        <div class="contact-info">
+
+            <span class="contact-label">
+                GET IN TOUCH
+            </span>
+
+            <h2>
+                Let's build
+                <span>something together.</span>
+            </h2>
+
+            {% if about %}
+
+                <p class="contact-intro">
+                    {{ about.bio }}
+                </p>
+
+                <div class="contact-details">
+
+                    {% if about.github %}
+                        <a href="{{ about.github }}" target="_blank">
+                            <span>GitHub</span>
+                            <span>↗</span>
+                        </a>
+                    {% endif %}
+
+                    {% if about.linkedin %}
+                        <a href="{{ about.linkedin }}" target="_blank">
+                            <span>LinkedIn</span>
+                            <span>↗</span>
+                        </a>
+                    {% endif %}
+
+                </div>
+
+            {% endif %}
+
+        </div>
 
 
-    <p>
-        Let's build something together.
-    </p>
+        <!-- =========================
+             RIGHT — MESSAGE FORM
+        ========================= -->
+
+        <div class="contact-form-wrapper">
+
+            <span class="form-label">
+                SEND A MESSAGE
+            </span>
+
+            <form
+                method="POST"
+                class="contact-form"
+            >
+
+                {% csrf_token %}
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Your name"
+                        required
+                    >
+
+                </div>
 
 
+                <div class="form-group">
 
-    <div class="contact-links">
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="your@email.com"
+                        required
+                    >
+
+                </div>
 
 
-        <a href="mailto:kimijaam@gmail.com">
-            Email
-        </a>
+                <div class="form-group">
+
+                    <label for="message">
+                        Message
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="5"
+                        placeholder="Tell me about your project..."
+                        required
+                    ></textarea>
+
+                </div>
 
 
-        <a href="https://github.com/kimiajam">
-            GitHub
-        </a>
+                <button
+                    type="submit"
+                    class="contact-submit"
+                >
+                    Send Message
+                    <span>↗</span>
+                </button>
 
+            </form>
 
-        <a href="in/kimiajam-dev">
-            LinkedIn
-        </a>
-
+        </div>
 
     </div>
 
-
 </section>
+<!-- =========================
+     COMMENTS SLIDER
+========================= -->
+
+{% if contact_messages %}
+
+<div class="comments-section">
+
+    <div class="comments-heading">
+        <span>MESSAGES</span>
+        <h3>What people say</h3>
+    </div>
+
+
+    <div class="comments-slider">
+
+        <div class="comments-track">
+
+            {% for comment in contact_messages %}
+
+            <div class="comment-card">
+
+                <div class="comment-top">
+
+                    <div class="comment-avatar">
+                        {{ comment.name|first|upper }}
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            {{ comment.name }}
+                        </h4>
+
+                        <span>
+                            {{ comment.created_at|date:"M d, Y" }}
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    “{{ comment.message }}”
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endif %}

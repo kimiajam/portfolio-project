@@ -2163,3 +2163,224 @@ body {
         transform: translateY(0);
     }
 }
+/* =========================
+   COMMENTS SLIDER
+========================= */
+
+.comments-section {
+    max-width: 1200px;
+    margin: 100px auto 0;
+    overflow: hidden;
+}
+
+.comments-heading {
+    margin-bottom: 30px;
+}
+
+.comments-heading span {
+    display: block;
+
+    color: #58a6ff;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+}
+
+.comments-heading h3 {
+    margin: 0;
+
+    font-size: 28px;
+
+    font-weight: 600;
+
+    letter-spacing: -1px;
+}
+
+
+/* =========================
+   TRACK
+========================= */
+
+.comments-slider {
+    width: 100%;
+    overflow: hidden;
+}
+
+.comments-track {
+    display: flex;
+
+    gap: 20px;
+
+    width: max-content;
+
+    animation:
+        commentsScroll 35s
+        linear
+        infinite;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.comment-card {
+    flex: 0 0 330px;
+
+    min-height: 170px;
+
+    padding: 24px;
+
+    box-sizing: border-box;
+
+    background: rgba(22, 27, 34, .75);
+
+    border: 1px solid
+        rgba(255, 255, 255, .08);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, .25);
+}
+
+
+/* =========================
+   TOP
+========================= */
+
+.comment-top {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 22px;
+}
+
+.comment-avatar {
+    width: 38px;
+
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #58a6ff;
+
+    color: #0d1117;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.comment-top h4 {
+    margin: 0 0 4px;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.comment-top span {
+    color: #64748b;
+
+    font-size: 10px;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.comment-card p {
+    margin: 0;
+
+    color: #b9c0c9;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes commentsScroll {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(
+            calc(-50% - 10px)
+        );
+    }
+
+}
+
+
+/* =========================
+   PAUSE ON HOVER
+========================= */
+
+.comments-track:hover {
+    animation-play-state: paused;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .comments-section {
+        margin-top: 70px;
+    }
+
+    .comments-heading h3 {
+        font-size: 24px;
+    }
+
+    .comment-card {
+        flex: 0 0 285px;
+
+        min-height: 160px;
+
+        padding: 20px;
+
+        border-radius: 17px;
+    }
+
+    .comment-card p {
+        font-size: 12px;
+    }
+
+    .comments-track {
+        gap: 14px;
+
+        animation-duration: 30s;
+    }
+
+}
