@@ -20,18 +20,27 @@ class Project(models.Model):
 
 
 class About(models.Model):
-    full_name = models.CharField(max_length=100)
-    job_title = models.CharField(max_length=150)
-    bio = models.TextField()
+    full_name = models.CharField(max_length=100, blank=True)
+    job_title = models.CharField(max_length=150, blank=True)
+    bio = models.TextField(blank=True)
 
-    profile_image = models.ImageField(upload_to="profile/")
-    cv = models.FileField(upload_to="cv/", blank=True)
+    profile_image = models.ImageField(
+        upload_to="profile/",
+        blank=True
+    )
+
+    cv = models.FileField(
+        upload_to="cv/",
+        blank=True
+    )
 
     github = models.URLField(blank=True)
     linkedin = models.URLField(blank=True)
+    whatsapp = models.URLField(blank=True)
+    email = models.EmailField(blank=True)
 
     def __str__(self):
-        return self.full_name
+        return self.full_name or "About"
 
 class Skill(models.Model):
     name = models.CharField(max_length=100)

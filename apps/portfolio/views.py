@@ -18,13 +18,11 @@ def home(request):
 
         return redirect("home")
 
-
     projects = Project.objects.all()
     about = About.objects.first()
     skills = Skill.objects.all()
     educations = Education.objects.all()
     contact_messages = ContactMessage.objects.order_by("-created_at")
-
 
     context = {
         "projects": projects,
@@ -33,6 +31,5 @@ def home(request):
         "educations": educations,
         "contact_messages": contact_messages,
     }
-
 
     return render(request, "home.html", context)
