@@ -266,26 +266,12 @@
 
                 <div class="comment-card">
 
-    <div class="comment-user">
-        <h4>{{ message.name }}</h4>
-    </div>
+                    <div class="comment-user">
+                        <h4>{{ message.name }}</h4>
+                    </div>
 
-    <p>
-        {{ message.message }}
-    </p>
+                    <p>{{ message.message }}</p>
 
-</div>
-
-     <p>
-        {{ message.message }}
-    </p>
-
-        </div>
-
-            {% empty %}
-
-                <div class="comment-card">
-                    <p>No messages yet.</p>
                 </div>
 
             {% endfor %}
