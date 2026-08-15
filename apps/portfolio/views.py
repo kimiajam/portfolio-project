@@ -1,5 +1,13 @@
 from django.shortcuts import render, redirect
-from .models import Project, About, Skill, Education, ContactMessage
+
+from .models import (
+    Project,
+    About,
+    Contact,
+    Skill,
+    Education,
+    ContactMessage,
+)
 
 
 def home(request):
@@ -20,16 +28,25 @@ def home(request):
 
     projects = Project.objects.all()
     about = About.objects.first()
+    contact = Contact.objects.first()
     skills = Skill.objects.all()
     educations = Education.objects.all()
-    contact_messages = ContactMessage.objects.order_by("-created_at")
+
+    contact_messages = ContactMessage.objects.order_by(
+        "-created_at"
+    )
 
     context = {
         "projects": projects,
         "about": about,
+        "contact": contact,
         "skills": skills,
         "educations": educations,
         "contact_messages": contact_messages,
     }
 
-    return render(request, "home.html", context)
+    return render(
+        request,
+        "home.html",
+        context
+    )
