@@ -238,6 +238,165 @@ document.addEventListener("DOMContentLoaded", () => {
     // =========================
 
     updateNavbar();
+
+        // =========================
+    //HERO NAME HOVER
+    // =========================
+
+    const heroLetters =
+        document.querySelectorAll(".hero-name span");
+
+    heroLetters.forEach((letter, index) => {
+
+        letter.addEventListener("mouseenter", () => {
+
+            letter.classList.add("active");
+
+            heroLetters.forEach((otherLetter, otherIndex) => {
+
+                if (otherLetter === letter) return;
+
+                const distance =
+                    Math.abs(index - otherIndex);
+
+                if (distance === 1) {
+                    otherLetter.classList.add("near");
+                }
+
+                if (distance === 2) {
+                    otherLetter.classList.add("far");
+                }
+
+            });
+
+        });
+
+
+        letter.addEventListener("mouseleave", () => {
+
+            heroLetters.forEach(otherLetter => {
+
+                otherLetter.classList.remove(
+                    "active",
+                    "near",
+                    "far"
+                );
+
+            });
+
+        });
+
+    });
+    
+    // =========================
+// BINARY DATA BACKGROUND
+// =========================
+
+const binaryBackground =
+    document.querySelector(".binary-background");
+
+
+if (binaryBackground) {
+
+    const isMobile =
+        window.innerWidth <= 768;
+
+    const columnCount =
+        isMobile ? 28 : 72;
+
+
+    for (let i = 0; i < columnCount; i++) {
+
+        const column =
+            document.createElement("div");
+
+        column.classList.add(
+            "binary-column"
+        );
+
+
+        // =========================
+        // POSITION
+        // =========================
+
+        const position =
+            (i / columnCount) * 100 +
+            (Math.random() * 1.5);
+
+
+        column.style.left =
+            `${position}%`;
+
+
+        // =========================
+        // SPEED
+        // =========================
+
+        const duration =
+            18 +
+            Math.random() * 22;
+
+        const delay =
+            -(Math.random() * duration);
+
+
+        column.style.setProperty(
+            "--binary-duration",
+            `${duration}s`
+        );
+
+        column.style.setProperty(
+            "--binary-delay",
+            `${delay}s`
+        );
+
+
+        // =========================
+        // RANDOM LENGTH
+        // =========================
+
+        const length =
+            18 +
+            Math.floor(
+                Math.random() * 55
+            );
+
+
+        // =========================
+        // CREATE BITS
+        // =========================
+
+        for (let j = 0; j < length; j++) {
+
+            const bit =
+                document.createElement("span");
+
+
+            bit.textContent =
+                Math.random() > .5
+                    ? "1"
+                    : "0";
+
+
+            bit.style.setProperty(
+                "--binary-opacity",
+                `${.25 + Math.random() * .75}`
+            );
+
+
+            column.appendChild(bit);
+
+        }
+
+
+        binaryBackground.appendChild(
+            column
+        );
+
+    }
+
+}
+
 // =========================
 // PROJECTS SLIDER
 // =========================
