@@ -9,14 +9,10 @@ __pycache__/
 # macOS
 .DS_Store
 
-# VS Code
 .vscode/
 
-# Environment Variables
 .env
 
-# Media
 media/
 
-# Logs
 *.log
