@@ -4,8 +4,8 @@ from .models import (
     Project,
     About,
     Contact,
-    Skill,
     Education,
+    Certificate,
     ContactMessage,
 )
 
@@ -29,8 +29,9 @@ def home(request):
     projects = Project.objects.all()
     about = About.objects.first()
     contact = Contact.objects.first()
-    skills = Skill.objects.all()
-    educations = Education.objects.all()
+
+    educations = Education.objects.all().order_by("-id")
+    certificates = Certificate.objects.all().order_by("-id")
 
     contact_messages = ContactMessage.objects.order_by(
         "-created_at"
@@ -40,8 +41,8 @@ def home(request):
         "projects": projects,
         "about": about,
         "contact": contact,
-        "skills": skills,
         "educations": educations,
+        "certificates": certificates,
         "contact_messages": contact_messages,
     }
 

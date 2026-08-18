@@ -4,11 +4,15 @@ from .models import (
     Project,
     About,
     Contact,
-    Skill,
     Education,
+    Certificate,
     ContactMessage,
 )
 
+
+# =========================
+# PROJECT
+# =========================
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
@@ -18,6 +22,10 @@ class ProjectAdmin(admin.ModelAdmin):
     )
 
 
+# =========================
+# ABOUT
+# =========================
+
 @admin.register(About)
 class AboutAdmin(admin.ModelAdmin):
     list_display = (
@@ -25,6 +33,10 @@ class AboutAdmin(admin.ModelAdmin):
         "job_title",
     )
 
+
+# =========================
+# CONTACT
+# =========================
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
@@ -36,21 +48,31 @@ class ContactAdmin(admin.ModelAdmin):
     )
 
 
-@admin.register(Skill)
-class SkillAdmin(admin.ModelAdmin):
-    list_display = (
-        "name",
-        "percentage",
-    )
-
+# =========================
+# EDUCATION
+# =========================
 
 @admin.register(Education)
 class EducationAdmin(admin.ModelAdmin):
     list_display = (
         "title",
-        "education_type",
     )
 
+
+# =========================
+# CERTIFICATES & COURSES
+# =========================
+
+@admin.register(Certificate)
+class CertificateAdmin(admin.ModelAdmin):
+    list_display = (
+        "title",
+    )
+
+
+# =========================
+# CONTACT MESSAGES
+# =========================
 
 @admin.register(ContactMessage)
 class ContactMessageAdmin(admin.ModelAdmin):

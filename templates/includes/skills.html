@@ -8,24 +8,144 @@
 
         <h2>
             Education
-            <span>& Skills</span>
+            <span>& Certificates</span>
         </h2>
 
     </div>
 
 
-    <div class="skills-layout">
+    <div class="education-layout">
 
 
         <!-- =========================
-             ACADEMIC
+             CERTIFICATES & COURSES
+        ========================= -->
+
+        <div class="courses-column">
+
+            <div class="column-heading">
+
+                <span>01</span>
+
+                <h3>
+                    Certificates & Courses
+                </h3>
+
+            </div>
+
+
+            <div class="courses-slider">
+
+                <div class="courses-track">
+
+                    {% for certificate in certificates %}
+
+                        {% if forloop.first or forloop.counter0|divisibleby:4 %}
+
+                            <div class="courses-slide">
+
+                        {% endif %}
+
+
+                                <div class="course-card">
+
+                                    <span class="course-number">
+                                        {{ forloop.counter|stringformat:"02d" }}
+                                    </span>
+
+                                    <div class="course-content">
+
+                                        <span class="course-type">
+                                            Certificate / Course
+                                        </span>
+
+                                        <h4>
+                                            {{ certificate.title }}
+                                        </h4>
+
+                                        {% if certificate.description %}
+
+                                            <p>
+                                                {{ certificate.description }}
+                                            </p>
+
+                                        {% endif %}
+
+                                    </div>
+
+                                </div>
+
+
+                        {% if forloop.counter|divisibleby:4 or forloop.last %}
+
+                            </div>
+
+                        {% endif %}
+
+                    {% empty %}
+
+                        <div class="courses-slide">
+
+                            <div class="course-card">
+
+                                <div class="course-content">
+
+                                    <h4>
+                                        No certificates added yet.
+                                    </h4>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+
+            <div class="slider-control">
+
+                <button
+                    class="courses-prev"
+                    type="button"
+                    aria-label="Previous courses">
+                    &lt;
+                </button>
+
+                <span class="slider-counter courses-counter">
+                    01
+                </span>
+
+                <button
+                    class="courses-next"
+                    type="button"
+                    aria-label="Next courses">
+                    &gt;
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             ACADEMIC EDUCATION
         ========================= -->
 
         <div class="education-column">
 
             <div class="column-heading">
-                <span>01</span>
-                <h3>Academic</h3>
+
+                <span>02</span>
+
+                <h3>
+                    Academic Education
+                </h3>
+
             </div>
 
 
@@ -35,29 +155,59 @@
 
                     {% for education in educations %}
 
-                        <div class="education-group">
+                        {% if forloop.first or forloop.counter0|divisibleby:4 %}
+
+                            <div class="education-slide">
+
+                        {% endif %}
+
+
+                                <div class="education-card">
+
+                                    <span class="education-number">
+                                        {{ forloop.counter|stringformat:"02d" }}
+                                    </span>
+
+                                    <div class="education-content">
+
+                                        <span class="education-type">
+                                            Academic
+                                        </span>
+
+                                        <h4>
+                                            {{ education.title }}
+                                        </h4>
+
+                                        {% if education.description %}
+
+                                            <p>
+                                                {{ education.description }}
+                                            </p>
+
+                                        {% endif %}
+
+                                    </div>
+
+                                </div>
+
+
+                        {% if forloop.counter|divisibleby:4 or forloop.last %}
+
+                            </div>
+
+                        {% endif %}
+
+                    {% empty %}
+
+                        <div class="education-slide">
 
                             <div class="education-card">
 
-                                <span class="education-number">
-                                    {{ forloop.counter }}
-                                </span>
-
                                 <div class="education-content">
 
-                                    <span class="education-type">
-                                        {{ education.get_education_type_display }}
-                                    </span>
-
                                     <h4>
-                                        {{ education.title }}
+                                        No education added yet.
                                     </h4>
-
-                                    {% if education.description %}
-                                        <p>
-                                            {{ education.description }}
-                                        </p>
-                                    {% endif %}
 
                                 </div>
 
@@ -78,7 +228,7 @@
                     class="education-prev"
                     type="button"
                     aria-label="Previous education">
-                    ←
+                    &lt;
                 </button>
 
                 <span class="slider-counter education-counter">
@@ -89,100 +239,13 @@
                     class="education-next"
                     type="button"
                     aria-label="Next education">
-                    →
+                    &gt;
                 </button>
 
             </div>
 
         </div>
 
-
-        <!-- =========================
-             TECHNICAL SKILLS
-        ========================= -->
-
-        <div class="skills-column">
-
-            <div class="column-heading">
-                <span>02</span>
-                <h3>Technical Skills</h3>
-            </div>
-
-
-            <div class="skills-slider">
-
-                <div class="skills-track">
-
-                    {% for skill in skills %}
-
-                        <div class="skills-group">
-
-                            <div class="skill-card">
-
-                                <div class="skill-card-top">
-
-                                    <div>
-
-                                        <span class="skill-index">
-                                            {{ forloop.counter }}
-                                        </span>
-
-                                        <h4>
-                                            {{ skill.name }}
-                                        </h4>
-
-                                    </div>
-
-                                    <span class="skill-percentage">
-                                        {{ skill.percentage }}%
-                                    </span>
-
-                                </div>
-
-
-                                <div class="skill-line">
-
-                                    <div
-                                        class="skill-line-progress"
-                                        style="width: {{ skill.percentage }}%;">
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    {% endfor %}
-
-                </div>
-
-            </div>
-
-
-            <div class="slider-control">
-
-                <button
-                    class="skills-prev"
-                    type="button"
-                    aria-label="Previous skills">
-                    ←
-                </button>
-
-                <span class="slider-counter skills-counter">
-                    01
-                </span>
-
-                <button
-                    class="skills-next"
-                    type="button"
-                    aria-label="Next skills">
-                    →
-                </button>
-
-            </div>
-
-        </div>
 
     </div>
 

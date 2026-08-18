@@ -1378,14 +1378,19 @@ body {
 }
 
 .projects h2 {
+    margin: 0 0 45px;
+
     text-align: center;
 
-    margin: 0 0 55px;
+    font-size: clamp(42px, 5vw, 64px);
 
-    font-size: 52px;
-    font-weight: 600;
+    line-height: .95;
 
-    letter-spacing: -2px;
+    letter-spacing: -4px;
+
+    font-weight: 700;
+
+    color: #f8fafc;
 }
 
 
@@ -1746,9 +1751,9 @@ body {
     }
 
     .projects h2 {
-        font-size: 42px;
-
-        margin-bottom: 40px;
+        font-size: 40px;
+        margin-bottom: 35px;
+        letter-spacing: -2.5px;
     }
 
     .projects-slider {
@@ -1788,13 +1793,13 @@ body {
 }
 
 /* =========================
-   SKILLS / EDUCATION
+   EDUCATION / CERTIFICATES
 ========================= */
 
 .skills {
     min-height: 100vh;
 
-    padding: 70px 80px 100px;
+    padding: 70px 80px 130px;
 
     background: #f8fafc;
 
@@ -1851,7 +1856,7 @@ body {
    TWO COLUMNS
 ========================= */
 
-.skills-layout {
+.education-layout {
     max-width: 1200px;
 
     margin: 0 auto;
@@ -1861,6 +1866,20 @@ body {
     grid-template-columns: 1fr 1fr;
 
     gap: 70px;
+
+    align-items: start;
+}
+
+
+/* =========================
+   COLUMNS
+========================= */
+
+.courses-column,
+.education-column {
+    width: 100%;
+
+    min-width: 0;
 }
 
 
@@ -1907,11 +1926,10 @@ body {
 
 
 /* =========================
-   SLIDER WINDOW
+   COURSES
 ========================= */
 
-.education-slider,
-.skills-slider {
+.courses-slider {
     width: 100%;
 
     overflow: hidden;
@@ -1919,58 +1937,192 @@ body {
     position: relative;
 }
 
-
-/* =========================
-   SLIDER TRACK
-========================= */
-
-.education-track,
-.skills-track {
-    display: flex;
-
-    width: 100%;
-
-    transition:
-        transform .7s cubic-bezier(.16, 1, .3, 1);
-}
-
-
-/* =========================
-   SLIDES
-   هر اسلاید = 3 کارت زیر هم
-========================= */
-
-.education-slide,
-.skills-slide {
-    min-width: 100%;
-
-    width: 100%;
-
-    flex-shrink: 0;
-
+.courses-track {
     display: flex;
 
     flex-direction: column;
 
-    gap: 14px;
+    gap: 12px;
+
+    width: 100%;
+}
+
+.course-group {
+    width: 100%;
 }
 
 
 /* =========================
-   CARDS
+   COURSE CARD
 ========================= */
 
-.education-card,
-.skill-card {
+.course-card {
     width: 100%;
 
-    min-height: 115px;
+    min-height: 85px;
 
     box-sizing: border-box;
 
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 18px;
+
+    padding: 18px 20px;
+
+    background: rgba(255, 255, 255, .72);
+
+    border: 1px solid
+        rgba(15, 23, 42, .07);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 28px
+        rgba(15, 23, 42, .05);
+
     opacity: 0;
 
-    transform: translateY(35px);
+    transform: translateY(25px);
+
+    cursor: pointer;
+
+    transition:
+        opacity .7s ease,
+        transform .4s cubic-bezier(.16, 1, .3, 1),
+        box-shadow .4s ease,
+        border-color .3s ease,
+        background .3s ease;
+}
+
+
+/* =========================
+   COURSE HOVER
+========================= */
+
+.course-card:hover {
+    transform: translateY(-7px) !important;
+
+    background: rgba(255, 255, 255, .95);
+
+    border-color:
+        rgba(37, 99, 235, .25);
+
+    box-shadow:
+        0 20px 45px rgba(15, 23, 42, .12),
+        0 0 25px rgba(37, 99, 235, .05);
+}
+
+
+/* =========================
+   COURSE NUMBER
+========================= */
+
+.course-number {
+    flex-shrink: 0;
+
+    width: 36px;
+
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #0f172a;
+
+    color: white;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    transition:
+        transform .35s cubic-bezier(.16, 1, .3, 1),
+        background .3s ease;
+}
+
+
+.course-card:hover .course-number {
+    transform: scale(1.08);
+
+    background: #2563eb;
+}
+
+
+/* =========================
+   COURSE CONTENT
+========================= */
+
+.course-content {
+    min-width: 0;
+}
+
+.course-type {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #2563eb;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+.course-content h4 {
+    margin: 0 0 6px;
+
+    color: #0f172a;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    line-height: 1.3;
+
+    letter-spacing: -.3px;
+
+    transition:
+        color .3s ease;
+}
+
+.course-card:hover .course-content h4 {
+    color: #2563eb;
+}
+
+.course-content p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   EDUCATION LIST
+========================= */
+
+.education-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    width: 100%;
 }
 
 
@@ -1979,37 +2131,61 @@ body {
 ========================= */
 
 .education-card {
+    width: 100%;
+
+    min-height: 120px;
+
+    box-sizing: border-box;
+
     display: flex;
 
-    gap: 20px;
+    align-items: flex-start;
 
-    padding: 22px;
+    gap: 18px;
+
+    padding: 20px;
 
     background: rgba(255, 255, 255, .72);
 
     border: 1px solid
         rgba(15, 23, 42, .07);
 
-    border-radius: 20px;
+    border-radius: 18px;
 
     box-shadow:
-        0 12px 35px rgba(15, 23, 42, .05);
+        0 10px 28px
+        rgba(15, 23, 42, .05);
+
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    cursor: pointer;
 
     transition:
         opacity .7s ease,
-        transform .7s cubic-bezier(.16, 1, .3, 1),
+        transform .4s cubic-bezier(.16, 1, .3, 1),
         box-shadow .4s ease,
-        border-color .4s ease;
+        border-color .3s ease,
+        background .3s ease;
 }
 
+
+/* =========================
+   EDUCATION HOVER
+========================= */
+
 .education-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-7px) !important;
+
+    background: rgba(255, 255, 255, .95);
 
     border-color:
-        rgba(37, 99, 235, .2);
+        rgba(37, 99, 235, .25);
 
     box-shadow:
-        0 20px 45px rgba(15, 23, 42, .09);
+        0 20px 45px rgba(15, 23, 42, .12),
+        0 0 25px rgba(37, 99, 235, .05);
 }
 
 
@@ -2039,6 +2215,17 @@ body {
     font-size: 10px;
 
     font-weight: 600;
+
+    transition:
+        transform .35s cubic-bezier(.16, 1, .3, 1),
+        background .3s ease;
+}
+
+
+.education-card:hover .education-number {
+    transform: scale(1.08);
+
+    background: #2563eb;
 }
 
 
@@ -2057,7 +2244,7 @@ body {
 
     color: #2563eb;
 
-    font-size: 10px;
+    font-size: 9px;
 
     font-weight: 600;
 
@@ -2067,11 +2254,24 @@ body {
 }
 
 .education-content h4 {
-    margin: 0 0 8px;
+    margin: 0 0 7px;
+
+    color: #0f172a;
 
     font-size: 19px;
 
+    font-weight: 600;
+
+    line-height: 1.3;
+
     letter-spacing: -.4px;
+
+    transition:
+        color .3s ease;
+}
+
+.education-card:hover .education-content h4 {
+    color: #2563eb;
 }
 
 .education-content p {
@@ -2079,122 +2279,9 @@ body {
 
     color: #64748b;
 
-    font-size: 13px;
-
-    line-height: 1.7;
-}
-
-
-/* =========================
-   SKILL CARD
-========================= */
-
-.skill-card {
-    padding: 22px;
-
-    background: #0f172a;
-
-    border: 1px solid
-        rgba(255, 255, 255, .06);
-
-    border-radius: 20px;
-
-    box-shadow:
-        0 15px 40px rgba(15, 23, 42, .12);
-
-    transition:
-        opacity .7s ease,
-        transform .7s cubic-bezier(.16, 1, .3, 1),
-        box-shadow .4s ease;
-}
-
-.skill-card:hover {
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 25px 50px rgba(15, 23, 42, .18);
-}
-
-
-/* =========================
-   SKILL TOP
-========================= */
-
-.skill-card-top {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    margin-bottom: 18px;
-}
-
-.skill-card-top > div {
-    display: flex;
-
-    align-items: center;
-
-    gap: 14px;
-}
-
-.skill-index {
-    color: #64748b;
-
-    font-size: 10px;
-
-    letter-spacing: 1px;
-}
-
-.skill-card h4 {
-    margin: 0;
-
-    color: white;
-
-    font-size: 16px;
-
-    font-weight: 600;
-}
-
-.skill-percentage {
-    color: #58a6ff;
-
     font-size: 12px;
 
-    font-weight: 600;
-}
-
-
-/* =========================
-   SKILL PROGRESS
-========================= */
-
-.skill-line {
-    width: 100%;
-
-    height: 4px;
-
-    background: #263244;
-
-    border-radius: 20px;
-
-    overflow: hidden;
-}
-
-.skill-line-progress {
-    height: 100%;
-
-    background: #58a6ff;
-
-    border-radius: 20px;
-
-    transform-origin: left;
-
-    transform: scaleX(0);
-
-    transition:
-        transform 1.2s
-        cubic-bezier(.16, 1, .3, 1);
+    line-height: 1.7;
 }
 
 
@@ -2202,8 +2289,8 @@ body {
    SCROLL REVEAL
 ========================= */
 
-.skills.show .education-card,
-.skills.show .skill-card {
+.skills.show .course-card,
+.skills.show .education-card {
     opacity: 1;
 
     transform: translateY(0);
@@ -2211,117 +2298,44 @@ body {
 
 
 /* =========================
-   CARD STAGGER
+   STAGGER
 ========================= */
 
-.skills.show
-.education-slide:nth-child(1)
-.education-card:nth-child(1),
-
-.skills.show
-.skills-slide:nth-child(1)
-.skill-card:nth-child(1) {
+.skills.show .course-card:nth-child(1) {
     transition-delay: .05s;
 }
 
-.skills.show
-.education-slide:nth-child(1)
-.education-card:nth-child(2),
-
-.skills.show
-.skills-slide:nth-child(1)
-.skill-card:nth-child(2) {
+.skills.show .course-card:nth-child(2) {
     transition-delay: .15s;
 }
 
-.skills.show
-.education-slide:nth-child(1)
-.education-card:nth-child(3),
-
-.skills.show
-.skills-slide:nth-child(1)
-.skill-card:nth-child(3) {
+.skills.show .course-card:nth-child(3) {
     transition-delay: .25s;
 }
 
+.skills.show .course-card:nth-child(4) {
+    transition-delay: .35s;
+}
 
-/* =========================
-   PROGRESS ANIMATION
-========================= */
+.skills.show .education-card:nth-child(1) {
+    transition-delay: .15s;
+}
 
-.skills.show .skill-line-progress {
-    transform: scaleX(1);
+.skills.show .education-card:nth-child(2) {
+    transition-delay: .25s;
+}
 
-    transition-delay: .5s;
+.skills.show .education-card:nth-child(3) {
+    transition-delay: .35s;
 }
 
 
 /* =========================
-   SLIDER CONTROLS
+   SLIDER CONTROL
 ========================= */
 
 .slider-control {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: flex-end;
-
-    gap: 10px;
-
-    margin-top: 18px;
-}
-
-.slider-control button {
-    width: 30px;
-
-    height: 30px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 0;
-
-    border: 1px solid
-        rgba(15, 23, 42, .12);
-
-    border-radius: 50%;
-
-    background: transparent;
-
-    color: #0f172a;
-
-    font-size: 12px;
-
-    cursor: pointer;
-
-    transition:
-        background .3s ease,
-        color .3s ease,
-        transform .3s ease;
-}
-
-.slider-control button:hover {
-    background: #0f172a;
-
-    color: white;
-
-    transform: translateY(-2px);
-}
-
-.slider-counter {
-    min-width: 30px;
-
-    text-align: center;
-
-    color: #94a3b8;
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
+    display: none;
 }
 
 
@@ -2332,16 +2346,20 @@ body {
 @media (max-width: 768px) {
 
     .skills {
-        min-height: 100svh;
+        min-height: auto;
 
-        padding: 55px 24px 50px;
+        padding: 75px 24px 90px;
 
         box-sizing: border-box;
     }
 
 
+    /* =========================
+       HEADER
+    ========================= */
+
     .skills-header {
-        margin-bottom: 30px;
+        margin-bottom: 38px;
     }
 
 
@@ -2358,10 +2376,16 @@ body {
         font-size: clamp(42px, 12vw, 55px);
 
         letter-spacing: -3px;
+
+        line-height: .95;
     }
 
 
-    .skills-layout {
+    /* =========================
+       COLUMNS
+    ========================= */
+
+    .education-layout {
         grid-template-columns: 1fr;
 
         gap: 45px;
@@ -2370,64 +2394,140 @@ body {
     }
 
 
-    .education-column,
-    .skills-column {
+    .courses-column,
+    .education-column {
         width: 100%;
     }
 
 
+    /* =========================
+       HEADINGS
+    ========================= */
+
     .column-heading {
         margin-bottom: 20px;
-    }
 
+        padding-bottom: 15px;
 
-    .education-slide,
-    .skills-slide {
         gap: 12px;
     }
 
+    .column-heading h3 {
+        font-size: 12px;
 
-    .education-card,
-    .skill-card {
+        letter-spacing: 1.7px;
+    }
+
+
+    /* =========================
+       COURSE CARDS
+    ========================= */
+
+    .courses-track {
+        gap: 10px;
+    }
+
+    .course-card {
+        min-height: 78px;
+
+        padding: 15px 16px;
+
+        gap: 14px;
+
+        border-radius: 16px;
+    }
+
+    .course-number {
+        width: 32px;
+
+        height: 32px;
+
+        font-size: 9px;
+    }
+
+    .course-type {
+        font-size: 8px;
+
+        letter-spacing: 1.6px;
+
+        margin-bottom: 5px;
+    }
+
+    .course-content h4 {
+        font-size: 15px;
+
+        line-height: 1.35;
+
+        margin-bottom: 5px;
+    }
+
+    .course-content p {
+        font-size: 10px;
+
+        line-height: 1.6;
+    }
+
+
+    /* =========================
+       EDUCATION CARDS
+    ========================= */
+
+    .education-list {
+        gap: 10px;
+    }
+
+    .education-card {
         min-height: 105px;
 
-        padding: 18px;
+        padding: 16px;
 
-        border-radius: 17px;
+        gap: 14px;
+
+        border-radius: 16px;
     }
 
+    .education-number {
+        width: 32px;
+
+        height: 32px;
+
+        font-size: 9px;
+    }
+
+    .education-type {
+        font-size: 8px;
+
+        letter-spacing: 1.6px;
+
+        margin-bottom: 5px;
+    }
 
     .education-content h4 {
-        font-size: 17px;
-    }
+        font-size: 16px;
 
+        line-height: 1.35;
+
+        margin-bottom: 6px;
+    }
 
     .education-content p {
-        font-size: 12px;
+        font-size: 10px;
+
+        line-height: 1.65;
     }
 
 
-    .skill-card h4 {
-        font-size: 14px;
+    /* =========================
+       MOBILE HOVER
+    ========================= */
+
+    .course-card:hover,
+    .education-card:hover {
+        transform: translateY(-5px) !important;
     }
 
-
-    .skill-percentage {
-        font-size: 11px;
-    }
-
-
-    .slider-control {
-        margin-top: 14px;
-    }
-
-
-    .slider-control button {
-        width: 30px;
-
-        height: 30px;
-    }
 }
+
 /* =========================
    CONTACT
 ========================= */
@@ -3633,61 +3733,6 @@ body {
         font-size: 11px;
 
         letter-spacing: 1.5px;
-
-    }
-
-    /* =========================
-       SKILLS
-    ========================= */
-
-    .skills {
-
-        min-height: 100svh;
-
-        padding: 90px 24px 60px;
-
-        box-sizing: border-box;
-
-    }
-
-
-    .skills h2 {
-
-        font-size: clamp(36px, 10vw, 46px);
-
-        margin-bottom: 50px;
-
-    }
-
-
-    .skill-item {
-
-        margin-bottom: 28px;
-
-        width: 100%;
-
-    }
-
-
-    .skill-info h3 {
-
-        font-size: 15px;
-
-    }
-
-
-    .skill-info span {
-
-        font-size: 13px;
-
-    }
-
-
-    .skill-bar {
-
-        width: 100%;
-
-        height: 6px;
 
     }
 
