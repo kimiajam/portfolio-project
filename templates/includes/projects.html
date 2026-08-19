@@ -8,7 +8,12 @@
 
             {% for project in projects %}
 
-            <div class="project-card">
+            <a
+                href="{{ project.github_url }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-card"
+            >
 
                 {% if project.image %}
                     <img
@@ -35,25 +40,9 @@
 
                     </div>
 
-                    <div class="project-links">
-
-                        {% if project.github_url %}
-                            <a href="{{ project.github_url }}" target="_blank">
-                                GitHub
-                            </a>
-                        {% endif %}
-
-                        {% if project.live_url %}
-                            <a href="{{ project.live_url }}" target="_blank">
-                                Live Demo
-                            </a>
-                        {% endif %}
-
-                    </div>
-
                 </div>
 
-            </div>
+            </a>
 
             {% endfor %}
 
@@ -62,5 +51,5 @@
     </div>
 
     <div class="projects-indicator"></div>
-    
+
 </section>
