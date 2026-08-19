@@ -392,178 +392,264 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+// =========================
+// PROJECTS SLIDER
+// =========================
+
+const projectsSlider =
+    document.querySelector(".projects-slider");
+
+const projectsTrack =
+    document.querySelector(".projects-track");
+
+const projectCards =
+    document.querySelectorAll(".project-card");
+
+const projectsIndicator =
+    document.querySelector(".projects-indicator");
+
+
+if (
+    projectsSlider &&
+    projectsTrack &&
+    projectCards.length &&
+    projectsIndicator
+) {
+
+    let currentProject = 0;
+
 
     // =========================
-    // PROJECTS SLIDER
+    // CREATE INDICATORS
     // =========================
 
-    const projectsSlider =
-        document.querySelector(".projects-slider");
+    projectCards.forEach((card, index) => {
 
-    const projectsTrack =
-        document.querySelector(".projects-track");
+        const dot =
+            document.createElement("span");
 
-    const projectCards =
-        document.querySelectorAll(".project-card");
+        dot.classList.add("project-dot");
 
-    const projectsIndicator =
-        document.querySelector(".projects-indicator");
+        if (index === 0) {
+            dot.classList.add("active");
+        }
 
-
-    if (
-        projectsSlider &&
-        projectsTrack &&
-        projectCards.length &&
-        projectsIndicator
-    ) {
-
-        let currentProject = 0;
+        projectsIndicator.appendChild(dot);
 
 
-        // =========================
-        // CREATE INDICATORS
-        // =========================
+        dot.addEventListener("click", () => {
 
-        projectCards.forEach((card, index) => {
+            currentProject = index;
 
-            const dot =
-                document.createElement("span");
+            const isMobile =
+                window.innerWidth <= 768;
 
-            dot.classList.add("project-dot");
 
-            if (index === 0) {
-                dot.classList.add("active");
+            // =========================
+            // MOBILE
+            // =========================
+
+            if (isMobile) {
+
+                projectsSlider.scrollTo({
+                    left: card.offsetLeft - 20,
+                    behavior: "smooth"
+                });
+
             }
 
-            projectsIndicator.appendChild(dot);
+            // =========================
+            // DESKTOP
+            // =========================
 
-
-            dot.addEventListener("click", () => {
-
-                currentProject = index;
+            else {
 
                 updateProjectsSlider();
 
-            });
+            }
 
         });
 
-
-        const dots =
-            projectsIndicator.querySelectorAll(
-                ".project-dot"
-            );
+    });
 
 
-        // =========================
-        // UPDATE SLIDER
-        // =========================
-
-        function updateProjectsSlider() {
-
-            const cardWidth =
-                projectCards[0].getBoundingClientRect().width;
-
-            const gap =
-                parseFloat(
-                    getComputedStyle(projectsTrack).gap
-                ) || 0;
+    const dots =
+        projectsIndicator.querySelectorAll(
+            ".project-dot"
+        );
 
 
-            const move =
-                currentProject *
-                (cardWidth + gap);
+    // =========================
+    // DESKTOP SLIDER
+    // =========================
+
+    function updateProjectsSlider() {
+
+        const isMobile =
+            window.innerWidth <= 768;
 
 
-            projectsTrack.style.transform =
-                `translateX(-${move}px)`;
-
-
-            dots.forEach((dot, index) => {
-
-                dot.classList.toggle(
-                    "active",
-                    index === currentProject
-                );
-
-            });
-
+        if (isMobile) {
+            return;
         }
 
 
-        // =========================
-        // SWIPE
-        // =========================
+        const cardWidth =
+            projectCards[0]
+                .getBoundingClientRect()
+                .width;
 
-        let touchStartX = 0;
-
-
-        projectsSlider.addEventListener(
-            "touchstart",
-            event => {
-
-                touchStartX =
-                    event.touches[0].clientX;
-
-            },
-            { passive: true }
-        );
+        const gap =
+            parseFloat(
+                getComputedStyle(
+                    projectsTrack
+                ).gap
+            ) || 0;
 
 
-        projectsSlider.addEventListener(
-            "touchend",
-            event => {
-
-                const touchEndX =
-                    event.changedTouches[0].clientX;
-
-                const difference =
-                    touchStartX - touchEndX;
+        const move =
+            currentProject *
+            (cardWidth + gap);
 
 
-                if (
-                    difference > 50 &&
-                    currentProject <
-                    projectCards.length - 1
-                ) {
-
-                    currentProject++;
-
-                    updateProjectsSlider();
-
-                }
+        projectsTrack.style.transform =
+            `translateX(-${move}px)`;
 
 
-                if (
-                    difference < -50 &&
-                    currentProject > 0
-                ) {
+        updateDots();
 
-                    currentProject--;
-
-                    updateProjectsSlider();
-
-                }
-
-            },
-            { passive: true }
-        );
+    }
 
 
-        // =========================
-        // RESIZE
-        // =========================
+    // =========================
+    // UPDATE DOTS
+    // =========================
 
-        window.addEventListener(
-            "resize",
-            updateProjectsSlider
-        );
+    function updateDots() {
 
+        dots.forEach((dot, index) => {
+
+            dot.classList.toggle(
+                "active",
+                index === currentProject
+            );
+
+        });
+
+    }
+
+
+    // =========================
+    // MOBILE SCROLL
+    // =========================
+
+    let scrollTimeout;
+
+
+    projectsSlider.addEventListener(
+        "scroll",
+        () => {
+
+            if (window.innerWidth > 768) {
+                return;
+            }
+
+
+            clearTimeout(scrollTimeout);
+
+
+            scrollTimeout =
+                setTimeout(() => {
+
+                    const scrollLeft =
+                        projectsSlider.scrollLeft;
+
+                    let closestIndex = 0;
+
+                    let closestDistance =
+                        Infinity;
+
+
+                    projectCards.forEach(
+                        (card, index) => {
+
+                            const distance =
+                                Math.abs(
+                                    card.offsetLeft -
+                                    20 -
+                                    scrollLeft
+                                );
+
+
+                            if (
+                                distance <
+                                closestDistance
+                            ) {
+
+                                closestDistance =
+                                    distance;
+
+                                closestIndex =
+                                    index;
+
+                            }
+
+                        }
+                    );
+
+
+                    currentProject =
+                        closestIndex;
+
+                    updateDots();
+
+                }, 50);
+
+        },
+        { passive: true }
+    );
+
+
+    // =========================
+    // RESIZE
+    // =========================
+
+    window.addEventListener(
+        "resize",
+        () => {
+
+            if (window.innerWidth <= 768) {
+
+                // Remove desktop transform
+                projectsTrack.style.transform =
+                    "none";
+
+            } else {
+
+                updateProjectsSlider();
+
+            }
+
+        }
+    );
+
+
+    // =========================
+    // INITIAL
+    // =========================
+
+    if (window.innerWidth <= 768) {
+
+        projectsTrack.style.transform =
+            "none";
+
+    } else {
 
         updateProjectsSlider();
 
     }
 
+}
 
     // =========================
     // EDUCATION / CERTIFICATES SLIDERS
