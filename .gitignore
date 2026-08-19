@@ -13,8 +13,6 @@ __pycache__/
 
 .env
 
-media/
-
 *.log
 
 staticfiles/
