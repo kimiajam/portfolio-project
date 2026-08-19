@@ -1751,9 +1751,9 @@ body {
     }
 
     .projects h2 {
-        font-size: 40px;
-        margin-bottom: 35px;
-        letter-spacing: -2.5px;
+        font-size: 42px;
+
+        margin-bottom: 40px;
     }
 
     .projects-slider {
@@ -2534,14 +2534,11 @@ body {
 
 .contact {
     min-height: 100vh;
-
     padding: 110px 80px 80px;
-
     background: #0d1117;
-
     color: white;
-
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 
@@ -2794,38 +2791,42 @@ body {
     transform: translateY(-2px);
 }
 
+
 /* =========================
-   SOCIAL CARDS — DARK GLASS
+   SOCIAL CARDS
 ========================= */
 
 .social-list {
     display: flex;
+
     flex-direction: column;
+
     gap: 14px;
 }
 
-
-/* =========================
-   CARD
-========================= */
 
 .social-item {
     position: relative;
 
     display: flex;
+
     align-items: center;
+
     gap: 18px;
 
     width: 100%;
+
     min-height: 72px;
 
     padding: 16px 20px;
 
     box-sizing: border-box;
 
-    background: rgba(255, 255, 255, .055);
+    background:
+        rgba(255,255,255,.055);
 
-    border: 1px solid rgba(255, 255, 255, .09);
+    border: 1px solid
+        rgba(255,255,255,.09);
 
     border-radius: 20px;
 
@@ -2834,23 +2835,21 @@ body {
     overflow: hidden;
 
     box-shadow:
-        0 12px 35px rgba(0, 0, 0, .12),
-        inset 0 1px 0 rgba(255, 255, 255, .035);
+        0 12px 35px rgba(0,0,0,.12),
+        inset 0 1px 0
+        rgba(255,255,255,.035);
 
     backdrop-filter: blur(12px);
+
     -webkit-backdrop-filter: blur(12px);
 
     transition:
-        transform .5s cubic-bezier(.16, 1, .3, 1),
+        transform .5s cubic-bezier(.16,1,.3,1),
         background .4s ease,
         border-color .4s ease,
         box-shadow .5s ease;
 }
 
-
-/* =========================
-   SUBTLE GLASS LIGHT
-========================= */
 
 .social-item::before {
     content: "";
@@ -2863,19 +2862,16 @@ body {
     width: 50%;
     height: 100%;
 
-    background: linear-gradient(
-        90deg,
-        rgba(255,255,255,.035),
-        transparent
-    );
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.035),
+            transparent
+        );
 
     pointer-events: none;
 }
 
-
-/* =========================
-   BLUE GLOW
-========================= */
 
 .social-item::after {
     content: "";
@@ -2888,7 +2884,8 @@ body {
     top: -90px;
     right: -50px;
 
-    background: rgba(88,166,255,.08);
+    background:
+        rgba(88,166,255,.08);
 
     border-radius: 50%;
 
@@ -2896,16 +2893,18 @@ body {
 
     opacity: 0;
 
-    transition: opacity .4s ease;
+    transition:
+        opacity .4s ease;
 }
 
 
 /* =========================
-   ICON
+   SOCIAL ICON
 ========================= */
 
 .social-icon {
     position: relative;
+
     z-index: 1;
 
     width: 42px;
@@ -2914,25 +2913,31 @@ body {
     flex-shrink: 0;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
-    border: 1px solid rgba(255,255,255,.09);
+    border: 1px solid
+        rgba(255,255,255,.09);
 
     border-radius: 13px;
 
-    background: rgba(255,255,255,.045);
+    background:
+        rgba(255,255,255,.045);
 
     color: #58a6ff;
 
     box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.04);
+        inset 0 1px 0
+        rgba(255,255,255,.04);
 
     transition:
         transform .4s cubic-bezier(.16,1,.3,1),
         background .3s ease,
         border-color .3s ease;
 }
+
 
 .social-icon svg {
     width: 18px;
@@ -2941,17 +2946,19 @@ body {
 
 
 /* =========================
-   TEXT
+   SOCIAL TEXT
 ========================= */
 
 .social-content {
     position: relative;
+
     z-index: 1;
 
     flex: 1;
 
     min-width: 0;
 }
+
 
 .social-content span {
     display: block;
@@ -2961,10 +2968,12 @@ body {
     color: #64748b;
 
     font-size: 8px;
+
     font-weight: 600;
 
     letter-spacing: 2px;
 }
+
 
 .social-content h4 {
     margin: 0;
@@ -2972,20 +2981,24 @@ body {
     color: #f8fafc;
 
     font-size: 14px;
+
     font-weight: 600;
 
     white-space: nowrap;
+
     overflow: hidden;
+
     text-overflow: ellipsis;
 }
 
 
 /* =========================
-   ARROW
+   SOCIAL ARROW
 ========================= */
 
 .social-arrow {
     position: relative;
+
     z-index: 1;
 
     color: #64748b;
@@ -2999,648 +3012,48 @@ body {
 
 
 /* =========================
-   HOVER
+   SOCIAL HOVER
 ========================= */
 
 .social-item:hover {
     transform: translateY(-4px);
 
-    background: rgba(255,255,255,.085);
+    background:
+        rgba(255,255,255,.085);
 
-    border-color: rgba(88,166,255,.2);
+    border-color:
+        rgba(88,166,255,.2);
 
     box-shadow:
         0 20px 45px rgba(0,0,0,.2),
-        inset 0 1px 0 rgba(255,255,255,.05);
+        inset 0 1px 0
+        rgba(255,255,255,.05);
 }
+
 
 .social-item:hover::after {
     opacity: 1;
 }
 
+
 .social-item:hover .social-icon {
     transform: scale(1.05);
 
-    background: rgba(88,166,255,.08);
+    background:
+        rgba(88,166,255,.08);
 
-    border-color: rgba(88,166,255,.22);
+    border-color:
+        rgba(88,166,255,.22);
 }
+
 
 .social-item:hover .social-arrow {
     color: #58a6ff;
 
-    transform: translate(3px,-3px);
+    transform:
+        translate(3px,-3px);
 }
 
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 768px) {
-
-    .social-list {
-        gap: 10px;
-    }
-
-    .social-item {
-        min-height: 66px;
-
-        padding: 13px 15px;
-
-        border-radius: 17px;
-    }
-
-    .social-icon {
-        width: 38px;
-        height: 38px;
-
-        border-radius: 11px;
-    }
-
-    .social-icon svg {
-        width: 16px;
-        height: 16px;
-    }
-
-    .social-content h4 {
-        font-size: 13px;
-    }
-}
-/* =========================
-   CONTACT + COMMENTS
-   MOBILE
-========================= */
-
-@media (max-width: 768px) {
-
-    /* =========================
-       CONTACT
-    ========================= */
-
-    .contact {
-        min-height: auto;
-
-        padding: 90px 20px 60px;
-
-        box-sizing: border-box;
-
-        overflow: hidden;
-    }
-
-
-    .contact-container {
-        width: 100%;
-
-        max-width: 100%;
-
-        margin: 0;
-    }
-
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    .contact-header {
-        margin-bottom: 40px;
-    }
-
-
-    .contact-label {
-        margin-bottom: 14px;
-
-        font-size: 9px;
-
-        letter-spacing: 3px;
-    }
-
-
-    .contact-header h2 {
-        font-size: clamp(42px, 13vw, 58px);
-
-        line-height: .95;
-
-        letter-spacing: -3px;
-    }
-
-
-    /* =========================
-       ONE COLUMN
-    ========================= */
-
-    .contact-grid {
-        grid-template-columns: 1fr;
-
-        gap: 16px;
-
-        width: 100%;
-    }
-
-
-    /* =========================
-       PANELS
-    ========================= */
-
-    .contact-panel,
-    .contact-social {
-        width: 100%;
-
-        padding: 22px;
-
-        border-radius: 20px;
-
-        box-sizing: border-box;
-    }
-
-
-    /* =========================
-       PANEL TOP
-    ========================= */
-
-    .panel-top {
-        gap: 10px;
-
-        margin-bottom: 28px;
-
-        padding-bottom: 15px;
-    }
-
-
-    .panel-top span {
-        font-size: 9px;
-
-        letter-spacing: 1.5px;
-    }
-
-
-    .panel-top h3 {
-        font-size: 13px;
-
-        letter-spacing: .7px;
-    }
-
-
-    /* =========================
-       FORM
-    ========================= */
-
-    .contact-form {
-        gap: 20px;
-    }
-
-
-    .contact-field {
-        gap: 8px;
-    }
-
-
-    .contact-field label {
-        font-size: 8px;
-
-        letter-spacing: 1.5px;
-    }
-
-
-    .contact-field input,
-    .contact-field textarea {
-        width: 100%;
-
-        max-width: 100%;
-
-        padding: 12px 0;
-
-        font-size: 13px;
-    }
-
-
-    .contact-submit {
-        padding: 12px 17px;
-
-        font-size: 10px;
-    }
-
-
-    /* =========================
-       SOCIAL
-    ========================= */
-
-    .social-list {
-        gap: 10px;
-    }
-
-
-    .social-item {
-        width: 100%;
-
-        min-height: 64px;
-
-        padding: 12px 14px;
-
-        border-radius: 16px;
-    }
-
-
-    .social-icon {
-        width: 36px;
-        height: 36px;
-
-        border-radius: 10px;
-    }
-
-
-    .social-icon svg {
-        width: 15px;
-        height: 15px;
-    }
-
-
-    .social-content span {
-        font-size: 7px;
-
-        letter-spacing: 1.5px;
-    }
-
-
-    .social-content h4 {
-        font-size: 12px;
-
-        max-width: 100%;
-    }
-
-
-    .social-arrow {
-        font-size: 14px;
-    }
-
-
-    /* =========================
-       COMMENTS
-    ========================= */
-
-    .comments-section {
-        width: 100%;
-
-        max-width: 100%;
-
-        margin-top: 50px;
-
-        padding-top: 22px;
-    }
-
-
-    .comments-heading {
-        margin-bottom: 18px;
-    }
-
-
-    .comments-heading span {
-        font-size: 7px;
-
-        letter-spacing: 2.5px;
-    }
-
-
-    .comments-heading h3 {
-        font-size: 27px;
-
-        letter-spacing: -1.4px;
-    }
-
-
-    .comments-slider {
-        width: 100%;
-
-        overflow: hidden;
-    }
-
-
-    .comments-track {
-        gap: 10px;
-
-        animation-duration: 40s;
-    }
-
-
-    .comment-card {
-        flex: 0 0 145px;
-
-        width: 145px;
-        height: 145px;
-
-        padding: 16px;
-
-        border-radius: 14px;
-    }
-
-
-    .comment-user h4 {
-        font-size: 15px;
-    }
-
-
-    .comment-card p {
-        margin-top: 13px;
-
-        font-size: 8px;
-
-        line-height: 1.7;
-    }
-
-}
-
-/* =========================
-   COMMENTS
-========================= */
-
-.comments-section {
-    width: 100%;
-    max-width: 1200px;
-
-    margin: 75px auto 0;
-    padding-top: 28px;
-
-    box-sizing: border-box;
-
-    border-top: 1px solid
-        rgba(255,255,255,.07);
-
-    overflow: hidden;
-}
-
-
-/* =========================
-   HEADING
-========================= */
-
-.comments-heading {
-    margin-bottom: 22px;
-}
-
-.comments-heading span {
-    display: block;
-
-    margin-bottom: 7px;
-
-    color: #58a6ff;
-
-    font-size: 8px;
-    font-weight: 600;
-
-    letter-spacing: 3px;
-}
-
-.comments-heading h3 {
-    margin: 0;
-
-    color: #f8fafc;
-
-    font-size: 31px;
-    font-weight: 600;
-
-    line-height: 1;
-
-    letter-spacing: -1.7px;
-}
-
-
-/* =========================
-   SLIDER
-========================= */
-
-.comments-slider {
-    width: 100%;
-    overflow: hidden;
-}
-
-.comments-track {
-    display: flex;
-
-    width: max-content;
-
-    gap: 12px;
-
-    animation:
-        commentsScroll 48s
-        linear
-        infinite;
-}
-
-.comments-track:hover {
-    animation-play-state: paused;
-}
-
-
-/* =========================
-   SMALL SQUARE CARD
-========================= */
-
-.comment-card {
-    position: relative;
-
-    flex: 0 0 160px;
-
-    width: 160px;
-    height: 160px;
-
-    padding: 18px;
-
-    box-sizing: border-box;
-
-    display: flex;
-    flex-direction: column;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.065),
-            rgba(255,255,255,.018)
-        );
-
-    border: 1px solid
-        rgba(255,255,255,.09);
-
-    border-radius: 15px;
-
-    box-shadow:
-        0 12px 30px rgba(0,0,0,.18),
-        inset 0 1px 0 rgba(255,255,255,.035);
-
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    overflow: hidden;
-
-    transition:
-        transform .4s cubic-bezier(.16,1,.3,1),
-        border-color .35s ease,
-        box-shadow .4s ease;
-}
-
-
-/* =========================
-   GLASS GLOW
-========================= */
-
-.comment-card::before {
-    content: "";
-
-    position: absolute;
-
-    width: 80px;
-    height: 80px;
-
-    top: -45px;
-    right: -35px;
-
-    background: rgba(88,166,255,.10);
-
-    border-radius: 50%;
-
-    filter: blur(22px);
-
-    pointer-events: none;
-}
-
-
-/* =========================
-   NAME
-========================= */
-
-.comment-user {
-    position: relative;
-    z-index: 1;
-}
-
-.comment-user h4 {
-    margin: 0;
-
-    color: #ffffff;
-
-    font-size: 18px;
-    font-weight: 800;
-
-    line-height: 1.05;
-
-    letter-spacing: -1px;
-
-    font-family: "Arial Black", Arial, sans-serif;
-
-    white-space: nowrap;
-
-    overflow: hidden;
-
-    text-overflow: ellipsis;
-}
-
-
-/* =========================
-   MESSAGE
-========================= */
-
-.comment-card p {
-    position: relative;
-    z-index: 1;
-
-    margin: 16px 0 0;
-
-    color: #8995a5;
-
-    font-size: 9px;
-    font-weight: 400;
-
-    line-height: 1.75;
-
-    display: -webkit-box;
-
-    -webkit-box-orient: vertical;
-
-    -webkit-line-clamp: 5;
-
-    overflow: hidden;
-}
-
-
-/* =========================
-   HOVER
-========================= */
-
-.comment-card:hover {
-    transform: translateY(-4px);
-
-    border-color:
-        rgba(88,166,255,.20);
-
-    box-shadow:
-        0 18px 38px rgba(0,0,0,.25),
-        inset 0 1px 0 rgba(255,255,255,.05);
-}
-
-
-/* =========================
-   AUTO SLIDE
-========================= */
-
-@keyframes commentsScroll {
-
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform:
-            translateX(
-                calc(-50% - 6px)
-            );
-    }
-
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 768px) {
-
-    .comments-section {
-        margin-top: 55px;
-        padding-top: 24px;
-    }
-
-    .comments-heading {
-        margin-bottom: 20px;
-    }
-
-    .comments-heading h3 {
-        font-size: 28px;
-    }
-
-    .comment-card {
-        flex: 0 0 145px;
-
-        width: 145px;
-        height: 145px;
-
-        padding: 16px;
-
-        border-radius: 14px;
-    }
-
-    .comment-user h4 {
-        font-size: 15px;
-    }
-
-    .comment-card p {
-        margin-top: 13px;
-        font-size: 8px;
-        line-height: 1.7;
-    }
-
-    .comments-track {
-        animation-duration: 40s;
-    }
-}
 
 @media (max-width: 768px) {
     /* =========================
@@ -3845,21 +3258,99 @@ body {
 }
 
 /* =========================
-   COMMENTS SLIDER
+   CONTACT
 ========================= */
 
-.comments-section {
+.contact {
+    min-height: 100vh;
+
+    padding: 110px 80px 80px;
+
+    background: #0d1117;
+
+    color: white;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.contact-container {
+
+    width: 100%;
+
     max-width: 1200px;
-    margin: 100px auto 0;
-    overflow: hidden;
+
+    margin: 0 auto;
 }
 
-.comments-heading {
-    margin-bottom: 30px;
+
+/* =========================
+   TWO COLUMNS
+========================= */
+
+.contact-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.15fr)
+        minmax(0, .85fr);
+
+    gap: 24px;
+
+    width: 100%;
 }
 
-.comments-heading span {
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    min-height: 100vh;
+
+    padding: 110px 80px 80px;
+
+    background: #0d1117;
+
+    color: white;
+
+    overflow-x: hidden;
+    overflow-y: visible;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   CONTACT CONTAINER
+========================= */
+
+.contact-container {
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.contact-header {
+    margin-bottom: 65px;
+}
+
+
+.contact-label {
     display: block;
+
+    margin-bottom: 18px;
 
     color: #58a6ff;
 
@@ -3867,89 +3358,376 @@ body {
 
     font-weight: 600;
 
-    letter-spacing: 3px;
-
-    margin-bottom: 10px;
+    letter-spacing: 4px;
 }
 
-.comments-heading h3 {
+
+.contact-header h2 {
     margin: 0;
 
-    font-size: 28px;
+    color: #f8fafc;
+
+    font-size: clamp(52px, 7vw, 82px);
 
     font-weight: 600;
 
-    letter-spacing: -1px;
+    line-height: .95;
+
+    letter-spacing: -5px;
+}
+
+
+.contact-header h2 span {
+    color: #64748b;
 }
 
 
 /* =========================
-   TRACK
+   TWO COLUMNS
 ========================= */
 
-.comments-slider {
+.contact-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.15fr)
+        minmax(0, .85fr);
+
+    gap: 24px;
+
     width: 100%;
-    overflow: hidden;
-}
 
-.comments-track {
-    display: flex;
-
-    gap: 20px;
-
-    width: max-content;
-
-    animation:
-        commentsScroll 35s
-        linear
-        infinite;
+    align-items: stretch;
 }
 
 
 /* =========================
-   CARD
+   FORM PANEL
 ========================= */
 
-.comment-card {
-    flex: 0 0 330px;
+.contact-panel {
+    width: 100%;
 
-    min-height: 170px;
+    min-width: 0;
 
-    padding: 24px;
+    padding: 30px;
 
     box-sizing: border-box;
 
-    background: rgba(22, 27, 34, .75);
+    background:
+        rgba(255,255,255,.025);
 
     border: 1px solid
-        rgba(255, 255, 255, .08);
+        rgba(255,255,255,.08);
 
-    border-radius: 20px;
-
-    box-shadow:
-        0 15px 40px
-        rgba(0, 0, 0, .25);
+    border-radius: 24px;
 }
 
 
 /* =========================
-   TOP
+   PANEL TOP
 ========================= */
 
-.comment-top {
+.panel-top {
     display: flex;
 
     align-items: center;
 
-    gap: 12px;
+    gap: 14px;
 
-    margin-bottom: 22px;
+    margin-bottom: 35px;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid
+        rgba(255,255,255,.08);
 }
 
-.comment-avatar {
-    width: 38px;
 
-    height: 38px;
+.panel-top span {
+    color: #58a6ff;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+.panel-top h3 {
+    margin: 0;
+
+    color: #f8fafc;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.contact-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+    width: 100%;
+}
+
+
+.contact-field {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+    width: 100%;
+}
+
+
+.contact-field label {
+    color: #64748b;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+
+.contact-field input,
+.contact-field textarea {
+    width: 100%;
+
+    max-width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 13px 0;
+
+    border: none;
+
+    border-bottom: 1px solid
+        rgba(255,255,255,.12);
+
+    outline: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    resize: vertical;
+
+    transition:
+        border-color .3s ease;
+}
+
+
+.contact-field input::placeholder,
+.contact-field textarea::placeholder {
+    color: #475569;
+}
+
+
+.contact-field input:focus,
+.contact-field textarea:focus {
+    border-bottom-color: #58a6ff;
+}
+
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
+
+.contact-submit {
+    align-self: flex-start;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-top: 8px;
+
+    padding: 13px 18px;
+
+    border: 1px solid
+        rgba(255,255,255,.12);
+
+    border-radius: 100px;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition:
+        background .35s ease,
+        color .35s ease,
+        border-color .35s ease,
+        transform .35s ease;
+}
+
+
+.contact-submit span {
+    font-size: 14px;
+}
+
+
+.contact-submit:hover {
+    background: #ffffff;
+
+    color: #0d1117;
+
+    border-color: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   SOCIAL LIST
+========================= */
+
+.social-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    width: 100%;
+
+    min-width: 0;
+}
+
+
+/* =========================
+   SOCIAL CARD
+========================= */
+
+.social-item {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    width: 100%;
+
+    min-height: 72px;
+
+    padding: 16px 20px;
+
+    box-sizing: border-box;
+
+    background:
+        rgba(255,255,255,.055);
+
+    border: 1px solid
+        rgba(255,255,255,.09);
+
+    border-radius: 20px;
+
+    text-decoration: none;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.12),
+        inset 0 1px 0
+        rgba(255,255,255,.035);
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    transition:
+        transform .5s cubic-bezier(.16,1,.3,1),
+        background .4s ease,
+        border-color .4s ease,
+        box-shadow .5s ease;
+}
+
+
+.social-item::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 50%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.035),
+            transparent
+        );
+
+    pointer-events: none;
+}
+
+
+.social-item::after {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    top: -90px;
+    right: -50px;
+
+    background:
+        rgba(88,166,255,.08);
+
+    border-radius: 50%;
+
+    filter: blur(30px);
+
+    opacity: 0;
+
+    transition:
+        opacity .4s ease;
+}
+
+
+/* =========================
+   SOCIAL ICON
+========================= */
+
+.social-icon {
+    position: relative;
+
+    z-index: 1;
+
+    width: 42px;
+    height: 42px;
 
     flex-shrink: 0;
 
@@ -3959,109 +3737,482 @@ body {
 
     justify-content: center;
 
-    border-radius: 50%;
+    border: 1px solid
+        rgba(255,255,255,.09);
 
-    background: #58a6ff;
+    border-radius: 13px;
 
-    color: #0d1117;
+    background:
+        rgba(255,255,255,.045);
 
-    font-size: 13px;
+    color: #58a6ff;
 
-    font-weight: 700;
+    box-shadow:
+        inset 0 1px 0
+        rgba(255,255,255,.04);
+
+    transition:
+        transform .4s cubic-bezier(.16,1,.3,1),
+        background .3s ease,
+        border-color .3s ease;
 }
 
-.comment-top h4 {
-    margin: 0 0 4px;
 
-    color: white;
+.social-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+
+/* =========================
+   SOCIAL CONTENT
+========================= */
+
+.social-content {
+    position: relative;
+
+    z-index: 1;
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.social-content span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #64748b;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+
+.social-content h4 {
+    margin: 0;
+
+    color: #f8fafc;
 
     font-size: 14px;
 
     font-weight: 600;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
 }
 
-.comment-top span {
-    color: #64748b;
-
-    font-size: 10px;
-}
 
 
 /* =========================
-   MESSAGE
+   SOCIAL HOVER
 ========================= */
 
-.comment-card p {
-    margin: 0;
+.social-item:hover {
+    transform: translateY(-4px);
 
-    color: #b9c0c9;
+    background:
+        rgba(255,255,255,.085);
 
-    font-size: 13px;
+    border-color:
+        rgba(88,166,255,.2);
 
-    line-height: 1.8;
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.2),
+        inset 0 1px 0
+        rgba(255,255,255,.05);
 }
 
 
-/* =========================
-   ANIMATION
-========================= */
-
-@keyframes commentsScroll {
-
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(
-            calc(-50% - 10px)
-        );
-    }
-
+.social-item:hover::after {
+    opacity: 1;
 }
 
 
-/* =========================
-   PAUSE ON HOVER
-========================= */
+.social-item:hover .social-icon {
+    transform: scale(1.05);
 
-.comments-track:hover {
-    animation-play-state: paused;
+    background:
+        rgba(88,166,255,.08);
+
+    border-color:
+        rgba(88,166,255,.22);
 }
 
 
-/* =========================
+.social-item:hover .social-arrow {
+    color: #58a6ff;
+
+    transform:
+        translate(3px,-3px);
+}
+
+
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media (max-width: 768px) {
 
-    .comments-section {
-        margin-top: 70px;
+    .contact {
+        min-height: auto;
+
+        padding:
+            90px 20px 60px;
+
+        box-sizing: border-box;
+
+        overflow-x: hidden;
     }
 
-    .comments-heading h3 {
-        font-size: 24px;
+
+    /* =========================
+       CONTAINER
+    ========================= */
+
+    .contact-container {
+        width: 100%;
+
+        max-width: 100%;
+
+        margin: 0;
     }
 
-    .comment-card {
-        flex: 0 0 285px;
 
-        min-height: 160px;
+    /* =========================
+       HEADER
+    ========================= */
 
-        padding: 20px;
-
-        border-radius: 17px;
+    .contact-header {
+        margin-bottom: 40px;
     }
 
-    .comment-card p {
+
+    .contact-label {
+        margin-bottom: 14px;
+
+        font-size: 9px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .contact-header h2 {
+        font-size:
+            clamp(
+                42px,
+                13vw,
+                58px
+            );
+
+        line-height: .95;
+
+        letter-spacing: -3px;
+    }
+
+
+    /* =========================
+       GRID
+    ========================= */
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+
+        width: 100%;
+    }
+
+
+    /* =========================
+       FORM
+    ========================= */
+
+    .contact-panel {
+        width: 100%;
+
+        padding: 22px;
+
+        border-radius: 20px;
+    }
+
+
+    .panel-top {
+        gap: 10px;
+
+        margin-bottom: 28px;
+
+        padding-bottom: 15px;
+    }
+
+
+    .panel-top span {
+        font-size: 9px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    .panel-top h3 {
+        font-size: 13px;
+
+        letter-spacing: .7px;
+    }
+
+
+    .contact-form {
+        gap: 20px;
+    }
+
+
+    .contact-field {
+        gap: 8px;
+    }
+
+
+    .contact-field label {
+        font-size: 8px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    .contact-field input,
+    .contact-field textarea {
+        width: 100%;
+
+        padding: 12px 0;
+
+        font-size: 13px;
+    }
+
+
+    .contact-submit {
+        padding: 12px 17px;
+
+        font-size: 10px;
+    }
+
+
+    /* =========================
+       SOCIAL
+    ========================= */
+
+    .social-list {
+        width: 100%;
+
+        gap: 10px;
+    }
+
+
+    .social-item {
+        width: 100%;
+
+        min-height: 64px;
+
+        padding: 12px 14px;
+
+        border-radius: 16px;
+    }
+
+
+    .social-icon {
+        width: 36px;
+        height: 36px;
+
+        border-radius: 10px;
+    }
+
+
+    .social-icon svg {
+        width: 15px;
+        height: 15px;
+    }
+
+
+    .social-content span {
+        font-size: 7px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    .social-content h4 {
         font-size: 12px;
+
+        max-width: 100%;
     }
 
-    .comments-track {
-        gap: 14px;
 
-        animation-duration: 30s;
+}
+
+/* =========================================================
+   PYTHON REPL CURSOR
+   DESKTOP ONLY
+========================================================= */
+
+@media (min-width: 769px) {
+
+    html,
+    body,
+    body *,
+    body *::before,
+    body *::after {
+        cursor: none !important;
+    }
+
+
+    /* =========================
+       CURSOR
+    ========================= */
+
+    .python-cursor {
+
+        position: fixed;
+
+        display: flex;
+
+        flex-direction: row;
+
+        align-items: center;
+
+        gap: 3px;
+
+        pointer-events: none;
+
+        z-index: 99999;
+
+        color: #58a6ff;
+
+        font-family:
+            "SFMono-Regular",
+            "Roboto Mono",
+            "Courier New",
+            monospace;
+
+        font-size: 13px;
+
+        font-weight: 500;
+
+        line-height: 1;
+
+        opacity: 0;
+
+        transform:
+            translate(3px, -50%);
+    }
+
+
+    /* =========================
+       >>>
+    ========================= */
+
+    .python-cursor span {
+
+        display: block;
+
+        transition:
+            transform .3s
+            cubic-bezier(.16,1,.3,1);
+    }
+
+
+    /* =========================
+       TERMINAL CURSOR LINE
+    ========================= */
+
+    .python-cursor::before {
+
+        content: "";
+
+        width: 2px;
+
+        height: 10px;
+
+        background: currentColor;
+
+        flex-shrink: 0;
+
+        order: 2;
+
+        animation:
+            terminalBlink
+            1s
+            steps(1)
+            infinite;
+    }
+
+
+    /* =========================
+       BLINK
+    ========================= */
+
+    @keyframes terminalBlink {
+
+        0%,
+        45% {
+            opacity: 1;
+        }
+
+        46%,
+        100% {
+            opacity: 0;
+        }
+
+    }
+
+
+    /* =========================
+       SHOW
+    ========================= */
+
+    body.python-cursor-ready
+    .python-cursor {
+
+        opacity: 1;
+    }
+
+
+    /* =========================
+       HOVER
+    ========================= */
+
+    body.python-cursor-hover
+    .python-cursor {
+
+        gap: 6px;
+    }
+
+
+    body.python-cursor-hover
+    .python-cursor span:nth-child(1) {
+
+        transform:
+            translateX(-1px);
+    }
+
+
+    body.python-cursor-hover
+    .python-cursor span:nth-child(2) {
+
+        transform:
+            translateX(1px);
+    }
+
+
+    body.python-cursor-hover
+    .python-cursor span:nth-child(3) {
+
+        transform:
+            translateX(3px);
     }
 
 }

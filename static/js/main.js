@@ -754,3 +754,141 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 });
+
+// =========================
+// COMMENTS INFINITE LOOP
+// =========================
+
+const commentsTrack =
+    document.querySelector(".comments-track");
+
+if (commentsTrack) {
+
+    const originalCards =
+        Array.from(
+            commentsTrack.children
+        );
+
+    if (originalCards.length > 0) {
+
+        originalCards.forEach(card => {
+
+            const clone =
+                card.cloneNode(true);
+
+            clone.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            commentsTrack.appendChild(
+                clone
+            );
+
+        });
+
+    }
+
+}
+// =========================================================
+// PYTHON REPL CURSOR
+// =========================================================
+
+if (window.innerWidth > 768) {
+
+    const pythonCursor =
+        document.createElement("div");
+
+    pythonCursor.className =
+        "python-cursor";
+
+
+    /* =========================
+       CREATE >>>
+    ========================= */
+
+    for (let i = 0; i < 3; i++) {
+
+        const symbol =
+            document.createElement("span");
+
+        symbol.textContent = ">";
+
+        pythonCursor.appendChild(
+            symbol
+        );
+
+    }
+
+
+    document.body.appendChild(
+        pythonCursor
+    );
+
+
+    /* =========================
+       MOVE
+    ========================= */
+
+    document.addEventListener(
+        "mousemove",
+        event => {
+
+            pythonCursor.style.left =
+                `${event.clientX}px`;
+
+            pythonCursor.style.top =
+                `${event.clientY}px`;
+
+            document.body.classList.add(
+                "python-cursor-ready"
+            );
+
+        }
+    );
+
+
+    /* =========================
+       HOVER
+    ========================= */
+
+    document.addEventListener(
+        "mouseover",
+        event => {
+
+            if (
+                event.target.closest(
+                    "a, button"
+                )
+            ) {
+
+                document.body.classList.add(
+                    "python-cursor-hover"
+                );
+
+            }
+
+        }
+    );
+
+
+    document.addEventListener(
+        "mouseout",
+        event => {
+
+            if (
+                event.target.closest(
+                    "a, button"
+                )
+            ) {
+
+                document.body.classList.remove(
+                    "python-cursor-hover"
+                );
+
+            }
+
+        }
+    );
+
+}

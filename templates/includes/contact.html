@@ -103,7 +103,6 @@
                     >
                         Send Message
 
-                        <span>↗</span>
 
                     </button>
 
@@ -130,6 +129,7 @@
                             viewBox="0 0 24 24"
                             aria-hidden="true"
                         >
+
                             <path
                                 d="M3 5.5h18v13H3z"
                                 fill="none"
@@ -143,6 +143,7 @@
                                 stroke="currentColor"
                                 stroke-width="1.5"
                             />
+
                         </svg>
 
                     </div>
@@ -157,11 +158,6 @@
                         </h4>
 
                     </div>
-
-
-                    <span class="social-arrow">
-                        ↗
-                    </span>
 
                 </a>
 
@@ -183,6 +179,7 @@
                             viewBox="0 0 24 24"
                             aria-hidden="true"
                         >
+
                             <path
                                 d="M6 8.5V18M6 6v.1M10 18v-5.2
                                    a3 3 0 0 1 6 0V18M10 10v8"
@@ -191,6 +188,7 @@
                                 stroke-width="1.6"
                                 stroke-linecap="round"
                             />
+
                         </svg>
 
                     </div>
@@ -205,11 +203,6 @@
                         </h4>
 
                     </div>
-
-
-                    <span class="social-arrow">
-                        ↗
-                    </span>
 
                 </a>
 
@@ -231,6 +224,7 @@
                             viewBox="0 0 24 24"
                             aria-hidden="true"
                         >
+
                             <path
                                 d="M12 3.5
                                    a8.5 8.5 0 0 0-2.7 16.55
@@ -256,6 +250,7 @@
                                    A8.5 8.5 0 0 0 12 3.5Z"
                                 fill="currentColor"
                             />
+
                         </svg>
 
                     </div>
@@ -270,11 +265,6 @@
                         </h4>
 
                     </div>
-
-
-                    <span class="social-arrow">
-                        ↗
-                    </span>
 
                 </a>
 
@@ -296,6 +286,7 @@
                             viewBox="0 0 24 24"
                             aria-hidden="true"
                         >
+
                             <path
                                 d="M12 4a8 8 0 0 0-6.9 12l-.9 3
                                    3.1-.9A8 8 0 1 0 12 4Z"
@@ -335,11 +326,6 @@
 
                     </div>
 
-
-                    <span class="social-arrow">
-                        ↗
-                    </span>
-
                 </a>
 
                 {% endif %}
@@ -348,54 +334,6 @@
             </div>
 
         </div>
-
-
-        <!-- COMMENTS -->
-
-        <div class="comments-section">
-
-            <div class="comments-heading">
-
-                <span>A FEW WORDS</span>
-
-                <h3>
-                    From the people.
-                </h3>
-
-            </div>
-
-
-            <div class="comments-slider">
-
-                <div class="comments-track">
-
-                    {% for message in contact_messages %}
-
-                    <div class="comment-card">
-
-                        <div class="comment-user">
-
-                            <h4>
-                                {{ message.name }}
-                            </h4>
-
-                        </div>
-
-
-                        <p>
-                            {{ message.message }}
-                        </p>
-
-                    </div>
-
-                    {% endfor %}
-
-                </div>
-
-            </div>
-
-        </div>
-
 
     </div>
 
