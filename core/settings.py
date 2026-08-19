@@ -75,16 +75,34 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "portfolio_db",
-        "USER": "postgres",
-        "PASSWORD": "Kp3238",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
+from urllib.parse import urlparse
+
+DATABASE_URL = os.environ.get("DATABASE_URL")
+
+if DATABASE_URL:
+    db_url = urlparse(DATABASE_URL)
+
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": db_url.path[1:],
+            "USER": db_url.username,
+            "PASSWORD": db_url.password,
+            "HOST": db_url.hostname,
+            "PORT": db_url.port or 5432,
+        }
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "portfolio_db",
+            "USER": "postgres",
+            "PASSWORD": "Kp3238",
+            "HOST": "127.0.0.1",
+            "PORT": "5432",
+        }
+    }
 
 
 # Password validation
